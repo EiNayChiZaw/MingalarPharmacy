@@ -1,0 +1,183 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="~/Scripts/vue.min.js"></script>
+    <title>@ViewBag.Title - Mingalar Pharmacy</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+    <style>
+        .navbar-default {
+            background-color: #4e9374 !important;
+        }
+
+        /*.nav li {
+            font-size: 18px;
+            margin: auto;
+            color: white;
+            font-family: 'Yu Gothic';
+        }*/
+
+        .center {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 50%;
+        }
+
+        .navbar-default .navbar-nav > li > a {
+            color: #fff;
+            font-family: Arial;
+            font-size: 13px;
+            background-color: transparent;
+        }
+
+        #grad1 {
+            background-image: linear-gradient( #b7ef8f,#5f8246);
+        }
+
+        #fot{
+              text-align: center;
+            width:100%;
+           height:40px;
+            background-color:#4f8759;
+          
+        }
+
+        .footer-copyright text-center py-3{
+            background-color:white;
+        }
+
+        .footer >ul > li > a{
+            color:black;
+        }
+
+        #page-footer a {
+     color: #fff;
+}
+
+#page-footer a:hover {
+     color: #fa5705;
+}
+    </style>
+</head>
+<body id="grad1">
+    <div class="container-fluid">
+        <div class="navbar navbar-default navbar-fixed-top">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="@Url.Action("Index", "Home")" title="Home" class="links">
+                    <img alt="Mingalar Logo" src="@Url.Content("~/Content/LOGO2.png")" style="width:130px;height:50px;" class="center">
+                </a>
+                @*<a href="@Url.Action("Index", "Home")" title="Home" class="links">
+                        <img alt="Mingalar Logo" src="@Url.Content("~/Content/LOGO2.png")" style="width:180px;height:50px">
+                    </a>*@
+                @*@Html.ActionLink("Mingalar Pharmacy", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })*@
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="@Url.Action("Index", "Home")" style="color:white">
+                            <span class="glyphicon glyphicon-home"></span>
+                            Home
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Index", "ContactUs")" style="color:white">
+                            <span class="glyphicon glyphicon-map-marker"></span>
+                            Contact Us
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Index", "Instock_Medicine")" style="color:white">
+                            <span class="glyphicon glyphicon-envelope"></span>
+                            Instock
+                        </a>
+                    </li>
+                    
+
+                    @*<li>@Html.ActionLink("Home", "Index","Home", "Home", new { Style = "color:white" })</li>
+                        <li>@Html.ActionLink("About", "About", "Home", "Home", new { Style = "color:white" })</li>
+                        <li>@Html.ActionLink("Contact Us", "Index", "ContactUs", "ContactUs", new { Style = "color:white" })</li>
+                        <li>@Html.ActionLink("Instock List", "Index","Instock_Medicine", "Instock_Medicine", new { Style = "color:white" })</li>*@
+
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        @*<li>@Html.ActionLink("Records", "Index","Records", "Records", new { Style = "color:white" })</li>*@
+                        <li>
+                            <a href="@Url.Action("Index", "Records")" style="color:white">
+                                <span class="glyphicon glyphicon-user"></span>
+                                Records
+                            </a>
+                        </li>
+                    }
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <li>
+                            <a href="@Url.Action("Index", "Suppliers")" style="color:white">
+                                <span class="	glyphicon glyphicon-briefcase"></span>
+                                Suppliers
+                            </a>
+                        </li>
+                    }
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li>
+                            <a href="@Url.Action("Create", "Wishlists")" style="color:white">
+                                <span class="glyphicon glyphicon-heart-empty"></span>
+                                Wishlists
+                            </a>
+                        </li>
+                    }
+                    @*<li>@Html.ActionLink("Suppliers", "Index", "Suppliers", "Suppliers", new { Style = "color:white" })</li>
+
+                        <li>@Html.ActionLink("Wishlist", "Create", "Wishlists", "Wishlists", new { Style = "color:white" })</li>*@
+                    <li>
+                        <a href="@Url.Action("About", "Home")" style="color:white">
+                            <span class="glyphicon glyphicon-paperclip"></span>
+                            Terms of Service
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Privacy", "Home")" style="color:white">
+                            <span class="glyphicon glyphicon-tasks"></span>
+                            Privacy Policya
+                        </a>
+                    </li>
+                </ul>
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </div>
+
+                @*<div class="container body-content">*@
+
+                @RenderBody()
+                @*<footer>
+                            <p>&copy; @DateTime.Now.Year -Mingalar Pharmacy</p>
+                        </footer>
+                    </div>*@
+
+                @Scripts.Render("~/bundles/jquery")
+                @Scripts.Render("~/bundles/bootstrap")
+                @RenderSection("scripts", required: false)
+    <footer class="page-footer font-small blue" style="background-color:#4e9374; position:absolute" id="fot">
+
+        <!-- Copyright -->
+        <div class="footer-copyright text-center py-3;" >
+          <p style="color:white; padding-top:1em">&copy; @DateTime.Now.Year  - Mingalar Pharmacy</p>  
+           
+        </div>
+        <!-- Copyright -->
+
+    </footer>
+            <!-- Footer -->
+            @*</div>*@
+</body>
+</html>

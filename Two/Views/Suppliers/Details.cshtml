@@ -1,0 +1,50 @@
+﻿@model Two.Supplier
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Supplier</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SupName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SupName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SupAddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SupAddress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SupPhone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SupPhone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MedicineID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MedicineID)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.SupID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

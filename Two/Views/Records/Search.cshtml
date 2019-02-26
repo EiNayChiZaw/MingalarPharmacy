@@ -1,0 +1,53 @@
+﻿@model IEnumerable<Two.Record>
+
+@*@{
+        ViewBag.Title = "Index";
+    }*@
+
+<p style="text-align:center; color:white;"><h2>Records: Search Results</h2></p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PatientID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Bought_Medicine)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Buying_Reason)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Comment)
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PatientID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Bought_Medicine)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Buying_Reason)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Comment)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.RecordID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.RecordID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.RecordID })
+            </td>
+        </tr>
+    }
+    @Html.ActionLink("Back to List", "Index")
+</table>

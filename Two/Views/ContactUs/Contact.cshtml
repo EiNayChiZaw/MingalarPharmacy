@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html>
+
+
+<head>
+    <title>Geolocation</title>
+    <script>
+        function loadMap() {
+            var mapOptions = {
+                center: new google.maps.LatLng(16.871311, 96.199379),
+                zoom: 7
+            }
+            var map = new google.maps.Map(document.getElementById("sample"), mapOptions);
+
+            var marker = new google.maps.Marker({
+                position: new google.maps.LatLng(16.871311, 96.199379), map: map,
+                animation: google.maps.Animation.BOUNCE
+            });
+
+
+            var infowindow = new google.maps.InfoWindow({
+                content: "Hi. I am here!!!"
+            });
+
+            //shows info as defaultgoogle,
+            // infowindow.open(map, marker);
+
+            //shows when clicking on marker
+            //google.maps.event.addListener(marker, 'click', function () {
+            //    infowindow.open(map, marker);
+            //});
+
+            google.maps.event.addListener(map, 'click', function (event) {
+                placeMarker(map, event.latLng);
+            });
+
+            function placeMarker(map, location) {
+                var marker = new google.maps.Marker({
+                    position: location,
+                    map: map
+                });
+
+                var infowindow = new google.maps.InfoWindow({
+                    content: "Latitude: " + location.lat() +
+                        '<br>Longitude: ' + location.lng()
+                });
+                infowindow.open(map, marker);
+            }
+
+        }
+    </script>
+</head>
+@*<body onload="LoadMap()"*@
+<body>
+    <div id="sample" style="width:500px; height:400px;"></div>
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?keyAIzaSyDqIRnYXfS5nNyen8HSWCjp7bqUtwU9Tr4
+            &libraries=places&callback=loadMap">
+    </script>
+</body>
+</html>

@@ -1,0 +1,97 @@
+﻿@model IEnumerable<Two.Supplier>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<style>
+    th {
+        background-color: #64a867;
+        color: white;
+    }
+</style>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<br />
+<br />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel='stylesheet' type='text/css'>
+
+<p style="text-align:center; color:white;"><h2>Suppliers</h2></p>
+@using (Html.BeginForm("Search", "Suppliers", FormMethod.Get))
+{
+    <p>
+        Search by Supplier name: @Html.TextBox("SearchString")
+        <input type="submit" class="but" value="Filter" />
+    </p>
+}
+<div class="container">
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <div class="panel panel-default panel-table">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col col-xs-6">
+                            <h3 class="panel-title">Supplier</h3>
+                        </div>
+                        <div class="col col-xs-6 text-right">
+
+                            @if (User.IsInRole("Admin"))
+                            {
+                                <p>
+                                    @Html.ActionLink("Create New", "Create")
+                                </p>
+                            }
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <table class="table table-striped table-bordered table-list">
+                        <thead>
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.SupName)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.SupAddress)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.SupPhone)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.MedicineID)
+                                </th>
+                                <th><em class="fa fa-cog  style=" align-content:center""></em></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.SupName)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.SupAddress)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.SupPhone)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.MedicineID)
+                                    </td>
+                                    <td align="center">
+                                        @Html.ActionLink("Edit", "Edit", new { id = item.SupID }) |
+                                        @Html.ActionLink("Details", "Details", new { id = item.SupID }) |
+                                        @Html.ActionLink("Delete", "Delete", new { id = item.SupID })
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

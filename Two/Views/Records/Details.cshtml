@@ -1,0 +1,58 @@
+﻿@model Two.Record
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Record</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PatientID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PatientID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Bought_Medicine)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Bought_Medicine)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Buying_Reason)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Buying_Reason)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Comment)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Comment)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.RecordID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
