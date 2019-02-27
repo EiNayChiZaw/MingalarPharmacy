@@ -109,8 +109,10 @@
     <Property Name="RequesterID" Type="varchar" MaxLength="40" />
     <Property Name="WishID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
   </EntityType>
-  <Association Name="FK__Supplier__Medici__5441852A">
-    <End Role="Instock_Medicine" Type="Self.Instock_Medicine" Multiplicity="0..1" />
+  <Association Name="FK__Supplier__Medici__5AEE82B9">
+    <End Role="Instock_Medicine" Type="Self.Instock_Medicine" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="Supplier" Type="Self.Supplier" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Instock_Medicine">
@@ -188,7 +190,7 @@
     <EntitySet Name="Record" EntityType="Self.Record" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Supplier" EntityType="Self.Supplier" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Wishlist" EntityType="Self.Wishlist" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FK__Supplier__Medici__5441852A" Association="Self.FK__Supplier__Medici__5441852A">
+    <AssociationSet Name="FK__Supplier__Medici__5AEE82B9" Association="Self.FK__Supplier__Medici__5AEE82B9">
       <End Role="Instock_Medicine" EntitySet="Instock_Medicine" />
       <End Role="Supplier" EntitySet="Supplier" />
     </AssociationSet>

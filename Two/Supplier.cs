@@ -11,13 +11,19 @@ namespace Two
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     
     public partial class Supplier
     {
+        [Display(Name = "Supplier ID")]
         public int SupID { get; set; }
+        [Display(Name = "Supplier Name")]
         public string SupName { get; set; }
+        [Display(Name = "Address")]
         public string SupAddress { get; set; }
+        [Display(Name = "Phone Number")]
         public string SupPhone { get; set; }
+        [Display(Name = "Providing Medicine ID")]
         public Nullable<int> MedicineID { get; set; }
     
         public virtual Instock_Medicine Instock_Medicine1 { get; set; }

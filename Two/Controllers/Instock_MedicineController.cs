@@ -145,7 +145,7 @@ namespace Two.Controllers
                 string physicalPath = Server.MapPath("~/Content/" + ImageName);
                 file.SaveAs(physicalPath);
                 Instock_Medicine med = new Instock_Medicine();
-                med.MedID = int.Parse(Request.Form["MedID"]);
+                //med.MedID = int.Parse(Request.Form["MedID"]);
                 med.Med_Img = new byte[file.ContentLength];
                 file.InputStream.Read(med.Med_Img, 0, file.ContentLength);
                 med.MedName = Request.Form["MedName"];

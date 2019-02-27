@@ -11,14 +11,21 @@ namespace Two
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     
     public partial class Record
     {
+        [Display(Name = "Record ID")]
         public int RecordID { get; set; }
+        [Display(Name = "User ID")]
         public string PatientID { get; set; }
+        [Display(Name = "Record Date")]
         public Nullable<System.DateTime> Date { get; set; }
+        [Display(Name = "Bought Medicine Name")]
         public string Bought_Medicine { get; set; }
+        [Display(Name = "Reason of buying")]
         public string Buying_Reason { get; set; }
+        [Display(Name = "Comment")]
         public string Comment { get; set; }
     }
 }

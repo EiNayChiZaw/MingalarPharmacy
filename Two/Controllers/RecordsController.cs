@@ -81,13 +81,15 @@ namespace Two.Controllers
                 using (SqlCommand command = new SqlCommand("", connection))
                 {
                     connection.Open();
-                    command.CommandText = "update Record set PatientID = @Name where RecordID = (select MAX(RecordID) from Record)";
+                   
+                    command.CommandText = "update Record set PatientID = @Name, Date=GETDATE() where RecordID = (select MAX(RecordID) from Record)";
                     command.Parameters.AddWithValue("@Name", userId);
                     command.ExecuteNonQuery();
                     connection.Close();
                 }
                
                 sql.Close();
+
                 return RedirectToAction("Index");
             }
 

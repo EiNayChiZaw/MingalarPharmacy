@@ -11,6 +11,7 @@ namespace Two
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     
     public partial class Instock_Medicine
     {
@@ -19,13 +20,19 @@ namespace Two
         {
             this.Suppliers1 = new HashSet<Supplier>();
         }
-    
+        [Display(Name = "Medicine ID")]
         public int MedID { get; set; }
+        [Display(Name = "Medicine name")]
         public string MedName { get; set; }
+        [Display(Name = "Quantity")]
         public int Quantity { get; set; }
+        [Display(Name = "Price")]
         public Nullable<decimal> Price { get; set; }
+        [Display(Name = "Supplier ID")]
         public Nullable<int> SupplierID { get; set; }
+        [Display(Name = "Description")] 
         public string Description { get; set; }
+        [Display(Name = "Image")]
         public byte[] Med_Img { get; set; }
         public string Img_Path { get; set; }
         public Nullable<System.DateTime> Instock_Date { get; set; }

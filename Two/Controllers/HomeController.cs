@@ -15,15 +15,26 @@ namespace Two.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+           // ViewBag.Message = "Your application description page.";
 
             return View();
         }
 
-        [Authorize(Roles ="Admin")]
+      //  [Authorize(Roles ="Admin")]
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
+            //ViewBag.Message = "Your contact page.";
+
+            return View();
+        }
+
+        public ActionResult Privacy()
+        {
+            
+            return View();
+        }
+        public ActionResult Tips()
+        {
 
             return View();
         }

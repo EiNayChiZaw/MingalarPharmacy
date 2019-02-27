@@ -289,6 +289,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\download %281%29.jpg" />
+    <Content Include="Content\images %281%29.jpg" />
+    <Content Include="Content\images.jpg" />
     <Content Include="Content\LOGO2.png" />
     <Content Include="Content\1280x960_71026P00-WVGPM-702x336.jpg" />
     <Content Include="Content\3d-printed-pharmaceuticals-header_kss.jpg" />
@@ -310,11 +313,14 @@
     <Content Include="Content\shutterstock_1077516080.jpg" />
     <Content Include="Content\shutterstock_168702206.jpg" />
     <Content Include="Content\skynews-brexit-medicines-health_4365434.jpg" />
+    <Content Include="Content\StyleSheet1.css" />
     <Content Include="Content\Untitled-1.jpg" />
+    <Content Include="Content\wavemoney.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Properties\wavemoney.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
@@ -409,6 +415,8 @@
     <Content Include="Views\Suppliers\Search.cshtml" />
     <Content Include="Views\Records\Search.cshtml" />
     <Content Include="Views\Wishlists\Search.cshtml" />
+    <Content Include="Views\Home\Privacy.cshtml" />
+    <Content Include="Views\Home\Tips.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

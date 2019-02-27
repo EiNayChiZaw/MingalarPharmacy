@@ -11,13 +11,19 @@ namespace Two
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
     public partial class Wishlist
     {
+     
+        [Display(Name = "Medicine Name")]   
         public string WishMedName { get; set; }
+        [Display(Name = "Amount you want to request")]
         public Nullable<int> RequestAmount { get; set; }
+        [Display(Name = "Comments")]
         public string Comment { get; set; }
+        [Display(Name = "Requester ID")]
         public string RequesterID { get; set; }
-        public int WishID { get; set; }
+            [Display(Name = "Wish number")]
+            public int WishID { get; set; }
     }
 }
