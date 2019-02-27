@@ -4,16 +4,35 @@
     ViewBag.Title = "Details";
 }
 
+<style>
+    a.my-class {
+        color: white;
+    }
+
+        a.my-class:active {
+            color: #ffffff;
+        }
+
+        a.my-class:link {
+            color: #ffffff;
+        }
+
+        a.my-class:visited {
+            color: white;
+        }
+</style>
 <h2>Details</h2>
 
-<div>
-    <h4>Record</h4>
-    <hr />
+<h4>Record</h4>
+<hr />
+
+
+<div style="background-color:white">
     <dl class="dl-horizontal">
         <dt>
             @Html.DisplayNameFor(model => model.PatientID)
         </dt>
-        <br/>
+
         <dd>
             @Html.DisplayFor(model => model.PatientID)
         </dd>
@@ -53,6 +72,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.RecordID }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Edit", "Edit", new { id = Model.RecordID }, new { @class = "my-class" }) |
+    @Html.ActionLink("Back to List", "Index", null, new { @class = "my-class" })
 </p>

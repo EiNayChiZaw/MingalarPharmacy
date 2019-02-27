@@ -8,6 +8,23 @@
         background-color: #64a867;
         color: white;
     }
+
+    a.my-class {
+        color: white;
+    }
+
+        a.my-class:active {
+            color: #ffffff;
+        }
+
+        a.my-class:link {
+            color: #ffffff;
+        }
+
+        a.my-class:visited {
+            color: white;
+        }
+
 </style>
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
@@ -29,9 +46,9 @@
                         </div>
                         @if (!User.IsInRole("Admin"))
                         {
-                        <div class="col col-xs-6 text-right">
+                            <div class="col col-xs-6 text-right">
                                 @Html.ActionLink("Create New", "Create")
-                        </div>
+                            </div>
                         }
                     </div>
                 </div>
@@ -39,7 +56,7 @@
                     <table class="table table-striped table-bordered table-list">
                         <thead>
                             <tr>
-                                
+
                                 <th>
                                     @Html.DisplayNameFor(model => model.WishMedName)
                                 </th>
@@ -52,14 +69,17 @@
                                 <th>
                                     @Html.DisplayNameFor(model => model.RequesterID)
                                 </th>
+                                @if (User.IsInRole("Admin"))
+                                {
                                 <th><em class="fa fa-cog  style=" align-content:center""></em></th>
-                               </tr>
+                                }
+                            </tr>
                         </thead>
                         <tbody>
                             @foreach (var item in Model)
                             {
                                 <tr>
-                                   
+
                                     <td>
                                         @Html.DisplayFor(modelItem => item.WishMedName)
                                     </td>
@@ -80,17 +100,11 @@
                                             @Html.ActionLink("Delete", "Delete", new { id = item.WishID })
                                         </td>
                                     }
-                                    else
-                                    {
-                                        <td>
-                                            Only Accessible by admin.
-                                        </td>
-                                    }
                                 </tr>
                             }
                         </tbody>
                     </table>
-                    @Html.ActionLink("Back to List", "Index")
+                    @Html.ActionLink("Back to List", "Index", null, new { @class = "my-class" })
                 </div>
             </div>
         </div>

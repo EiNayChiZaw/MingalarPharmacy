@@ -3,7 +3,23 @@
 @{
     ViewBag.Title = "Edit";
 }
+<style>
+        a.my-class {
+        color: white;
+    }
 
+        a.my-class:active {
+            color: #ffffff;
+        }
+
+        a.my-class:link {
+            color: #ffffff;
+        }
+
+        a.my-class:visited {
+            color: white;
+        }
+</style>
 <h2>Edit</h2>
 
 
@@ -58,7 +74,7 @@
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to List", "Index", null, new { @class = "my-class" })
 </div>
 
 @section Scripts {

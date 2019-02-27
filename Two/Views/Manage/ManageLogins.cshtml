@@ -3,8 +3,19 @@
 @{
     ViewBag.Title = "Manage your external logins";
 }
-
-<h2>@ViewBag.Title.</h2>
+<style>
+         /*.but{
+            background-color: #41a865;
+            color: white;
+            padding: 6px 10px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 70px;
+            opacity: 0.9;
+    }*/
+</style>
+<h2>Account Details</h2>
 
 <p class="text-success">@ViewBag.StatusMessage</p>
 @{
@@ -12,8 +23,7 @@
     if (loginProviders.Count() == 0) {
         <div>
             <p>
-                There are no external authentication services configured. See <a href="http://go.microsoft.com/fwlink/?LinkId=313242">this article</a>
-                for details on setting up this ASP.NET application to support logging in via external services.
+                There are no external authentication services configured.
             </p>
         </div>
     }
@@ -37,7 +47,7 @@
                                         <div>
                                             @Html.Hidden("loginProvider", account.LoginProvider)
                                             @Html.Hidden("providerKey", account.ProviderKey)
-                                            <input type="submit" class="btn btn-default" value="Remove" title="Remove this @account.LoginProvider login from your account" />
+                                            <input type="submit" class="but" value="Remove" title="Remove this @account.LoginProvider login from your account" />
                                         </div>
                                     }
                                 }
@@ -60,7 +70,7 @@
                 <p>
                     @foreach (AuthenticationDescription p in Model.OtherLogins)
                     {
-                        <button type="submit" class="btn btn-default" id="@p.AuthenticationType" name="provider" value="@p.AuthenticationType" title="Log in using your @p.Caption account">@p.AuthenticationType</button>
+                        <button type="submit" class="but" id="@p.AuthenticationType" name="provider" value="@p.AuthenticationType" title="Log in using your @p.Caption account">@p.AuthenticationType</button>
                     }
                 </p>
                 </div>

@@ -3,7 +3,23 @@
 @{
     ViewBag.Title = "Details";
 }
+<style>
+            a.my-class {
+        color: white;
+    }
 
+        a.my-class:active {
+            color: #ffffff;
+        }
+
+        a.my-class:link {
+            color: #ffffff;
+        }
+
+        a.my-class:visited {
+            color: white;
+        }
+</style>
 <h2>Details</h2>
 
 <div>
@@ -33,18 +49,9 @@
         <dd>
             @Html.DisplayFor(model => model.Comment)
         </dd>
-
-        @*<dt>
-            @Html.DisplayNameFor(model => model.RequesterID)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.RequesterID)
-        </dd>*@
-
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.WishID }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Edit", "Edit", new { id = Model.WishID }, new { @class = "my-class" }) |
+    @Html.ActionLink("Back to List", "Index", null, new { @class = "my-class" })
 </p>

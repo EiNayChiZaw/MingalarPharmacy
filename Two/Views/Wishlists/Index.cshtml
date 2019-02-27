@@ -8,6 +8,21 @@
         background-color: #64a867;
         color: white;
     }
+            a.my-class {
+        color: white;
+    }
+
+        a.my-class:active {
+            color: #ffffff;
+        }
+
+        a.my-class:link {
+            color: #ffffff;
+        }
+
+        a.my-class:visited {
+            color: white;
+        }
 </style>
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
@@ -58,7 +73,10 @@
                                 <th>
                                     @Html.DisplayNameFor(model => model.RequesterID)
                                 </th>
+                                @if (User.IsInRole("Admin"))
+                                { 
                                 <th><em class="fa fa-cog  style=" align-content:center""></em></th>
+                                }
                                </tr>
                         </thead>
                         <tbody>
@@ -88,9 +106,8 @@
                                     }
                                     else
                                     {
-                                        <td>
-                                            Only Accessible by admin.
-                                        </td>
+                                        @Html.ActionLink("Edit", "Edit", new { id = item.WishID }) |
+                                        @Html.ActionLink("Details", "Details", new { id = item.WishID }) 
                                     }
                                 </tr>
                             }

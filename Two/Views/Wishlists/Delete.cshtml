@@ -3,7 +3,33 @@
 @{
     ViewBag.Title = "Delete";
 }
+<style>
+            a.my-class {
+        color: white;
+    }
 
+        a.my-class:active {
+            color: #ffffff;
+        }
+
+        a.my-class:link {
+            color: #ffffff;
+        }
+
+        a.my-class:visited {
+            color: white;
+        }
+           .but{
+            background-color: #41a865;
+            color: white;
+            padding: 6px 10px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 70px;
+            opacity: 0.9;
+    }
+</style>
 <h2>Delete</h2>
 
 <h3>Are you sure you want to delete this?</h3>
@@ -49,8 +75,8 @@
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+            <input type="submit" value="Delete" class="but" /> |
+            @Html.ActionLink("Back to List", "Index", null, new { @class = "my-class" })
         </div>
     }
 </div>

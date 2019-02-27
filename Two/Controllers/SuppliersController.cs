@@ -61,6 +61,10 @@ namespace Two.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "SupID,SupName,SupAddress,SupPhone,MedicineID")] Supplier supplier)
         {
+            if(!db.Instock_Medicine.Any(c=> c.MedID == supplier.MedicineID))
+            {
+                ModelState.AddModelError("CustomerId", "Medicine ID not found.");
+            }
             if (ModelState.IsValid)
             {
                 db.Suppliers.Add(supplier);

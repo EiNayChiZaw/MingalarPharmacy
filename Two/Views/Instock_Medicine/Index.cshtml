@@ -86,7 +86,10 @@
                                 <th>
                                     @Html.DisplayNameFor(model => model.Img_Path)
                                 </th>
+                                @if (User.IsInRole("Admin"))
+                                {
                                 <th><em class="fa fa-cog  style=" align-content:center""></em></th>
+                                }
                             </tr>
                         </thead>
                         <tbody>
@@ -119,12 +122,6 @@
                                             @Html.ActionLink("Edit", "Edit", new { id = item.MedID }) |
                                             @Html.ActionLink("Details", "Details", new { id = item.MedID }) |
                                             @Html.ActionLink("Delete", "Delete", new { id = item.MedID })
-                                        </td>
-                                    }
-                                    else
-                                    {
-                                        <td>
-                                            Only Accessible by admin.
                                         </td>
                                     }
                                 </tr>

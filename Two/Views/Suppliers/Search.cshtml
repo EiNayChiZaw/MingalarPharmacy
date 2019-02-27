@@ -10,6 +10,21 @@
         background-color: #64a867;
         color: white;
     }
+        a.my-class {
+        color: white;
+    }
+
+        a.my-class:active {
+            color: #ffffff;
+        }
+
+        a.my-class:link {
+            color: #ffffff;
+        }
+
+        a.my-class:visited {
+            color: white;
+        }
 </style>
 <link href="~/Content/StyleSheet1.css"  rel="stylesheet" />
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
@@ -79,7 +94,7 @@ Supplier Search result
                             }
                         </tbody>
                     </table>
-                    @Html.ActionLink("Back to List", "Index")
+                    @Html.ActionLink("Back to List", "Index", null, new { @class = "my-class" })
                 </div>
             </div>
         </div>
